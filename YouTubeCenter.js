@@ -3876,6 +3876,7 @@
       yonez: "@styles-yonez-clean-yt@"*/
     };
     var mostlikedvideo=0;
+    var mostlikedthumb="";
     ytcenter.topScrollPlayer = (function() {
       function enterComplete() {
         if (inTransition) {
@@ -6309,15 +6310,23 @@
             likesCount.className = "likes-count";
             likesCount.style.marginRight = "4px";
             likesCount.style.verticalAlign = "middle";
-            likesCount.style.fontSize = "11px";
+            
               var likesdifference = likes - dislikes;
               if (likesdifference > mostlikedvideo) {
+                if (mostlikedthumb!=""){
+    mostlikedthumb.style.color = "#fff";
+    mostlikedthumb.style.fontSize = "11px"; 
+                }
+            
                 mostlikedvideo = likesdifference;
-                likeIcon.style.color = "#98FB98"; 
-                likesCount.style.color = "#98FB98";   
+                mostlikedthumb=likesCount
+                mostlikedthumb.style.color = "#98FB98";
+                mostlikedthumb.style.fontSize = "15px"; 
+                
               }
               else {
                 likesCount.style.color = "#fff";
+                likesCount.style.fontSize = "11px";
               }
                 likesCount.textContent = ytcenter.utils.number1000Formating(likesdifference);
            
@@ -6325,8 +6334,7 @@
               ytcenter.utils.hasClass(item.videoThumb, "yt-thumb-120") ||
               ytcenter.utils.hasClass(item.videoThumb, "yt-thumb-106")
             ) {
-              likesCount.style.fontSize = "11px";
-              dislikesCount.style.fontSize = "11px";
+             
             }
 
             likeIcon.className = "ytcenter-icon-thumbs-like"; // icon-watch-stats-like
@@ -6770,6 +6778,7 @@
             for (var i = 0; i < items.length; i++) {
               if (countEnabled) {
                 appendRatingCount(items[i], items[i].likes, items[i].dislikes);
+            
               }
               if (barEnabled) {
                 appendRatingBar(items[i], items[i].likes, items[i].dislikes);
