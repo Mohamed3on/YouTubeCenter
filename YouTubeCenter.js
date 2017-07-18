@@ -6315,14 +6315,12 @@
               if (likesdifference > mostlikedvideo) {
                 if (mostlikedthumb!=""){
     mostlikedthumb.style.color = "#fff";
-    mostlikedthumb.style.fontSize = "11px"; 
     mostlikedthumb.textContent = mostlikedthumb.textContent.replace(" Watch me!", "");
                 }
             
                 mostlikedvideo = likesdifference;
                 mostlikedthumb=likesCount
                 mostlikedthumb.style.color = "#98FB98";
-                mostlikedthumb.style.fontSize = "15px"; 
                  likesCount.textContent = ytcenter.utils.number1000Formating(likesdifference)+ ' Watch me!';
                 
               }
