@@ -2257,7 +2257,7 @@
 
     function getAPIKey() {
       return (
-        'AIzaSyDzKXuIOU7eK02ZCHzZCkd7FilhjGio7UM'
+        ytcenter.settings.google_apikey || 'AIzaSyDzKXuIOU7eK02ZCHzZCkd7FilhjGio7UM'
       );
     }
 
@@ -7140,6 +7140,7 @@
       }
       function loadRatings(items, callback) {
         var apikey = getAPIKey();
+
         var ids = [];
         var ids_item = [];
 
