@@ -5339,17 +5339,15 @@
       var exports = {};
       exports.watchedVideos = [];
       exports.loadWatchedVideosFromYouTubePage = function() {
-        var a = document.getElementsByClassName("watched"),
+        var a = document.getElementsByClassName(
+            "contains-percent-duration-watched"
+          ),
           i,
           b;
         for (i = 0; i < a.length; i++) {
-          if (a[i].tagName === "DIV") {
-            b = ytcenter.utils.getVideoIdFromLink(
-              a[i].firstChild.getAttribute("href")
-            );
-            if (b && !ytcenter.utils.inArray(exports.watchedVideos, b))
-              exports.watchedVideos.push(b);
-          }
+          b = ytcenter.utils.getVideoIdFromLink(a[i].baseURI);
+          if (b && !ytcenter.utils.inArray(exports.watchedVideos, b))
+            exports.watchedVideos.push(b);
         }
       };
       exports.isVideoWatched = function(id) {
