@@ -5345,7 +5345,8 @@
           i,
           b;
         for (i = 0; i < a.length; i++) {
-          b = ytcenter.utils.getVideoIdFromLink(a[i].baseURI);
+          const videoLink=a[i].firstElementChild.href
+          b = ytcenter.utils.getVideoIdFromLink(videoLink);
           if (b && !ytcenter.utils.inArray(exports.watchedVideos, b))
             exports.watchedVideos.push(b);
         }
